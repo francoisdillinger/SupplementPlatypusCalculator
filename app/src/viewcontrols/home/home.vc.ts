@@ -16,26 +16,28 @@ export default class HomeViewControl extends BaseViewControl {
          this.context.valueTwo = '';
      }
     //  This function checks to make sure both inputs have a value in them
-    checkInput(){
+    isInputValid(){
         // This puts the contexts in a variable
         let one:string = this.context.valueOne;
         let two:string = this.context.valueTwo;
         // This checks to see if the string value of inputs is empty
         if(one === null || two === null || one === '' || two === ''){
             alert("You need a digit in both inputs you genius!");
-            // Returns the boolean true
-            return true;
+            // Returns the boolean false
+            // Meaning both inputs having content is false, it cannot run
+            return false;
         }
         else{
-            // Returns the boolean false
-            return false;
+            // Returns the boolean true
+            // Meaning its true that both input are properly filled out
+            return true;
         }
     }
     // This function runs when the '+' button is clicked and adds both inputs
     addition(){
         // This checks to make sure inputs have content or will trigger an alert
         // If the returned value is false, it means there are numbers in the inputs and the following code runs
-        if (this.checkInput() === false) {
+        if (this.isInputValid()) {
                 // This parses both inputs from strings into a number
                 let one:number = parseInt(this.context.valueOne);
                 let two:number = parseInt(this.context.valueTwo);
@@ -48,8 +50,7 @@ export default class HomeViewControl extends BaseViewControl {
     }
     // This function runs when the '-' button is clicked and subtracts both inputs
     subtraction(){
-         if (this.checkInput() === false) {
-                this.checkInput();
+         if (this.isInputValid()) {
                 let one = parseInt(this.context.valueOne);
                 let two = parseInt(this.context.valueTwo);
                 let sum = one - two;
@@ -59,8 +60,7 @@ export default class HomeViewControl extends BaseViewControl {
     }
     // This function runs when the '*' button is clicked and multiplies both inputs
     multiplication(){
-         if (this.checkInput() === false) {
-                this.checkInput();
+         if (this.isInputValid()) {
                 let one = parseInt(this.context.valueOne);
                 let two = parseInt(this.context.valueTwo);
                 let sum = one * two;
@@ -70,17 +70,16 @@ export default class HomeViewControl extends BaseViewControl {
     }
     // This function runs when the '/' button is clicked and divides both inputs
     division(){
-         if (this.checkInput() === false) {
+         if (this.isInputValid()) {
                 let one = parseInt(this.context.valueOne);
                 let two = parseInt(this.context.valueTwo);
                     // This checks to make sure the second number isn't 0, since you can't divide by 0
                     if(two === 0){
-                        // If it is then it triggers this alert
-                        alert('You can\'t divide a number by zero!')
+                        // If it is then it triggers this message
+                        this.context.answer = 'You can\'t divide a number by zero! Try again!';
                     }
                     // Else it runs the rest of the code
                     else{
-                        this.checkInput();
                         let sum = one / two;
                         this.context.answer = `You finally learned to divide ${one} by ${two} to get a total of ${sum}. I'm still not impressed.`;
                         this.clear();
