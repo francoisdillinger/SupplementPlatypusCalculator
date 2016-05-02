@@ -1,1 +1,19 @@
-<h1>Hello World!</h1>
+<div id="main">
+                <div id="message" >
+                    <h1></h1>
+                </div>
+               <div id="calculator">
+                   <div>
+                       <h1>{{greeting}}</h1>
+                       <h3>{{answer}}</h3>
+                   </div>
+               <div id="input"> 
+               <input placeholder="0" type="number" plat-bind="valueOne" required>
+               <input placeholder="0" type="number" plat-bind="valueTwo" required>
+               </div>
+               <button plat-tap="addition()">+</button>
+               <button plat-tap="subtraction()">-</button>
+               <button plat-tap="multiplication()">*</button>
+               <button plat-tap="division()">/</button>
+               </div>
+           </div>
