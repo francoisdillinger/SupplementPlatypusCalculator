@@ -29,7 +29,7 @@ export default class HomeViewControl extends BaseViewControl {
         }
         else{
             // Returns the boolean true
-            // Meaning its true that both input are properly filled out
+            // Meaning its true that both inputs are properly filled out
             return true;
         }
     }
