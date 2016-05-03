@@ -44,7 +44,7 @@ export default class HomeViewControl extends BaseViewControl {
                 let sum = one + two;
                 // This sets the 'answer' context to a different string depending on the function being called
                 this.context.answer = `Wow! You can add ${one} and ${two} to get a total of ${sum}. Don't you feel smart?`;
-                // This calles the 'clear' function which clears both input fields
+                // This calls the 'clear' function which clears both input fields
                 this.clear();
         }
     }
